@@ -45,11 +45,21 @@
                                 :release          {:output-dir "resources/public/scripts/compiled/prod"}
                                 :devtools         {:http-port        9000
                                                    :http-root        "resources/public"
-                                                   :push-state/index "index_dev.html"}}}}
+                                                   :push-state/index "index_dev.html"}}
+
+                         :karma-test
+                               {:target    :karma
+                                :ns-regexp "-test$"
+                                :output-to "target/karma-test.js"}}}
 
   :release-tasks [["deploy" "clojars"]]
 
   :aliases {"watch" ["with-profile" "dev" "do"
                      ["clean"]
-                     ["shadow" "watch" "demo"]]})
+                     ["shadow" "watch" "demo"]]
+
+            "ci"    ["do"
+                     ["clean"]
+                     ["shadow" "compile" "karma-test"]
+                     ["shell" "karma" "start" "--single-run" "--reporters" "junit,dots"]]})
 
