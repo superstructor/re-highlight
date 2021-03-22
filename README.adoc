@@ -1,0 +1,72 @@
+:source-highlighter: coderay
+:source-language: clojure
+:toc:
+:toc-placement: preamble
+:sectlinks:
+:sectanchors:
+:toc:
+:icons: font
+
+image:https://img.shields.io/clojars/v/superstructor/re-highlight?style=for-the-badge&logo=clojure&logoColor=fff["Clojars Project", link="https://clojars.org/superstructor/re-highlight"]
+image:https://img.shields.io/github/issues-raw/superstructor/re-highlight?style=for-the-badge&logo=github["GitHub issues", link="https://github.com/superstructor/re-highlight/issues"]
+image:https://img.shields.io/github/license/superstructor/re-highlight?style=for-the-badge["License", link="https://github.com/superstructor/re-highlight/blob/master/LICENSE"]
+
+= Reagent wrapper for Highlight.js
+
+A simple Reagent wrapper around the Highlight.js library, with no dependencies except
+link:https://www.npmjs.com/package/highlight.js[highlight.js via npm].
+
+As this uses the npm dependency directly (instead of cljsjs), it has only been tested
+with shadow-cljs.
+
+== Quick Start
+
+=== Step 1. Add Dependency
+
+Add the following project dependency:
+image:https://img.shields.io/clojars/v/superstructor/re-highlight?style=for-the-badge&logo=clojure&logoColor=fff["Clojars Project", link="https://clojars.org/superstructor/re-highlight"]
+
+Requires that you have reagent as a dependency of your project.
+
+=== Step 2. Add Highlight.js Theme
+
+Add a Highlight.js stylesheet to your `index.html` or equivalent; e.g.:
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/default.min.css">
+
+
+=== Step 3. Use
+
+    (ns my-app
+      (:require
+        [re-highlight.core :refer [highlight]]))
+
+    (defn panel
+      []
+      [highlight
+        {:language "clojure"}
+        "(defn fibo-recursive [n]\n         (if (or (= n 0) (= n 1))\n           n\n           (+ (fibo-recursive (- n 1)) (fibo-recursive (- n 2)))))"]]])
+
+== License
+
+The MIT License (MIT)
+
+Copyright (c) 2019-2021 Isaac Johnston
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
