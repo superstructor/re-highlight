@@ -13,15 +13,8 @@ image:https://img.shields.io/github/license/superstructor/re-highlight?style=for
 
 = Reagent wrapper for Highlight.js
 
-A simple Reagent wrapper around the Highlight.js library, with no dependencies except
-link:https://www.npmjs.com/package/highlight.js[highlight.js via npm].
-
-If you use shadow-cljs, the `highlight.js` npm library dependency will be
-pulled automatically via `src/deps.cljs` `:npm-deps`.
-
-If you use another build system, you will probably need to add the following
-cljsjs dependency to your project:
-image:https://img.shields.io/clojars/v/cljsjs/highlight?style=for-the-badge&logo=clojure&logoColor=fff["Clojars Project", link="https://clojars.org/cljsjs/highlight"]
+A simple Reagent wrapper around the link:https://highlightjs.org/[Highlight.js] library, with no dependencies except Highlight.js itself
+link:https://www.npmjs.com/package/highlight.js[via npm (for shadow-cljs)] or link:https://github.com/cljsjs/packages/tree/master/highlight[via cljsjs].
 
 == Quick Start
 
@@ -30,7 +23,16 @@ image:https://img.shields.io/clojars/v/cljsjs/highlight?style=for-the-badge&logo
 Add the following project dependency:
 image:https://img.shields.io/clojars/v/superstructor/re-highlight?style=for-the-badge&logo=clojure&logoColor=fff["Clojars Project", link="https://clojars.org/superstructor/re-highlight"]
 
-Requires that you have reagent as a dependency of your project.
+Requires that you have reagent as a dependency of your project: image:https://img.shields.io/clojars/v/reagent?style=for-the-badge&logo=clojure&logoColor=fff["Clojars Project", link="https://clojars.org/reagent"]
+
+If you use shadow-cljs, the `highlight.js` npm library dependency will be
+pulled automatically via `src/deps.cljs` `:npm-deps`.
+
+If you use another build system, you will probably need to add the following
+cljsjs dependency to your project:
+image:https://img.shields.io/clojars/v/cljsjs/highlight?style=for-the-badge&logo=clojure&logoColor=fff["Clojars Project", link="https://clojars.org/cljsjs/highlight"]
+
+Cljsjs is not included as a transitive dependency because it lags behind the npm release, and included it here would mean that project depended on two different versions of Highlight.js based on your build system. Cljsjs support is not a priority since shadow-cljs is the way to go these days, so code-wise it is compatible but consumers who want it have to add the dependency themselves.
 
 === Step 2. Add Highlight.js Theme
 
