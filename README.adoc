@@ -16,8 +16,14 @@ image:https://img.shields.io/github/license/superstructor/re-highlight?style=for
 A simple Reagent wrapper around the Highlight.js library, with no dependencies except
 link:https://www.npmjs.com/package/highlight.js[highlight.js via npm].
 
-As this uses the npm dependency directly (instead of cljsjs), it has only been tested
-with shadow-cljs.
+If you use shadow-cljs, the `highlight.js` npm library dependency will be
+pulled automatically via `src/deps.cljs` `:npm-deps`.
+
+If you use another build system, you will probably need to add the following
+cljsjs dependency to your project:
+```
+image:https://img.shields.io/clojars/v/cljsjs/highlight?style=for-the-badge&logo=clojure&logoColor=fff["Clojars Project", link="https://clojars.org/cljsjs/highlight"]
+```
 
 == Quick Start
 

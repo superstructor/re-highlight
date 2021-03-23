@@ -1,9 +1,9 @@
 (ns re-highlight.core
   (:require
-    [goog.object    :as gobj]
-    [reagent.core   :as r]
-    [reagent.dom    :as rdom]
-    ["highlight.js" :as highlight-js]))
+    [goog.object  :as gobj]
+    [reagent.core :as r]
+    [reagent.dom  :as rdom]
+    [highlight.js :as highlight-js]))
 
 (def highlight-element (gobj/get highlight-js "highlightElement"))
 
