@@ -53,6 +53,9 @@
                                 :output-to "target/karma-test.js"}}}
 
   :release-tasks [["deploy" "clojars"]]
+  
+  :shell          {:commands {"karma" {:windows         ["cmd" "/c" "karma"]
+                                       :default-command "karma"}}}
 
   :aliases {"watch" ["with-profile" "dev" "do"
                      ["clean"]
