@@ -32,7 +32,7 @@ If you use another build system, you will probably need to add the following
 cljsjs dependency to your project:
 image:https://img.shields.io/clojars/v/cljsjs/highlight?style=for-the-badge&logo=clojure&logoColor=fff["Clojars Project", link="https://clojars.org/cljsjs/highlight"]
 
-Cljsjs is not included as a transitive dependency because it lags behind the npm release, and included it here would mean that project depended on two different versions of Highlight.js based on your build system. Cljsjs support is not a priority since shadow-cljs is the way to go these days, so code-wise it is compatible but consumers who want it have to add the dependency themselves.
+Cljsjs is not included as a transitive dependency because it lags behind the npm release, so including it here would mean that this project depended on two different versions of Highlight.js. Cljsjs support is not a priority since shadow-cljs is the way to go these days, so code-wise it is compatible but consumers who want it have the cljsjs support need to add the dependency themselves.
 
 === Step 2. Add Highlight.js Theme
 
