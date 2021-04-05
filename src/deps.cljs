@@ -1,4 +1,4 @@
-{:npm-deps     {"highlight.js"          "10.7.1"}
+{:npm-deps     {"highlight.js"          "10.7.2"}
  :npm-dev-deps {"shadow-cljs"           "2.11.24"
                 "karma"                 "6.2.0"
                 "karma-chrome-launcher" "3.1.0"

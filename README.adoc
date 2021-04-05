@@ -38,7 +38,7 @@ Cljsjs is not included as a transitive dependency because it lags behind the npm
 
 Add a Highlight.js stylesheet to your `index.html` or equivalent; e.g.:
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
 
 
 === Step 3. Use
