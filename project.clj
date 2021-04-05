@@ -20,7 +20,7 @@
 
   :middleware [leiningen.git-inject/middleware]
 
-  :profiles {:dev {:dependencies [[binaryage/devtools "1.0.2"]]}}
+  :profiles {:dev {:dependencies [[binaryage/devtools "1.0.3"]]}}
 
   :source-paths ["src"]
   :test-paths ["test"]
