@@ -1,5 +1,7 @@
 ## Unreleased
 
+## 0.0.2 (2021-04-06)
+
 #### Changed
 
 - Upgrade highlight.js to 10.7.2
