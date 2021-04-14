@@ -1,6 +1,6 @@
 (defproject    superstructor/re-highlight "lein-git-inject/version"
   :description "Reagent wrapper for Highlight.js"
-  :url         "https://github.com/superstruct/re-highlight.git"
+  :url         "https://github.com/superstructor/re-highlight.git"
   :license     {:name "MIT"}
 
   :dependencies [[org.clojure/clojure       "1.10.3"   :scope "provided"]
