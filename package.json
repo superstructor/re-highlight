@@ -1,7 +1,7 @@
 {
   "name": "superstructor.re-highlight",
   "dependencies": {
-    "highlight.js": "10.7.2"
+    "highlight.js": "11.0.1"
   },
   "devDependencies": {
     "karma": "6.3.2",
