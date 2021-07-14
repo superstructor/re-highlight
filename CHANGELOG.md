@@ -1,5 +1,13 @@
 ## Unreleased
 
+## 1.1.0 (2021-07-14)
+
+#### Changed
+
+- Upgrade highlight.js to 11.1.0
+
+## 1.0.0 (2021-06-23)
+
 #### Changed
 
 - Upgrade highlight.js to 11.0.1

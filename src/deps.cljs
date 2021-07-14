@@ -1,4 +1,4 @@
-{:npm-deps     {"highlight.js"          "11.0.1"}
+{:npm-deps     {"highlight.js"          "11.1.0"}
  :npm-dev-deps {"react"                 "17.0.2"
                 "react-dom"             "17.0.2"
                 "shadow-cljs"           "2.15.1"
