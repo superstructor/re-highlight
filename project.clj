@@ -12,7 +12,7 @@
                  [reagent                   "1.1.0"    :scope "provided"]
                  [re-com                    "2.13.2"   :scope "provided"]]
 
-  :plugins [[day8/lein-git-inject "0.0.14"]
+  :plugins [[day8/lein-git-inject "0.0.15"]
             [lein-shadow          "0.4.0"]
             [lein-shell           "0.5.0"]]
 
