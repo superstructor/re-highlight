@@ -2,6 +2,7 @@
 
 #### Changed
 
+- Upgrade Highlight.js to [11.5.1](https://github.com/highlightjs/highlight.js/blob/main/CHANGES.md#version-1150)
 - BREAKING: Only include `"hightlight.js/lib/core"` to fix build performance issues
   caused by previously loading all languages. Now only Clojure support is
   registered by default. If you are using any other language, you now need to
