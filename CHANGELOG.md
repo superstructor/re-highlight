@@ -1,5 +1,7 @@
 ## Unreleased
 
+## 2.0.0 (2022-05-22)
+
 #### Changed
 
 - Upgrade Highlight.js to [11.5.1](https://github.com/highlightjs/highlight.js/blob/main/CHANGES.md#version-1150)
