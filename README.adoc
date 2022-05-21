@@ -14,7 +14,7 @@ image:https://img.shields.io/github/license/superstructor/re-highlight?style=for
 = Reagent wrapper for Highlight.js
 
 A simple Reagent wrapper around the link:https://highlightjs.org/[Highlight.js] library, with no dependencies except Highlight.js itself
-link:https://www.npmjs.com/package/highlight.js[via npm (for shadow-cljs)] or link:https://github.com/cljsjs/packages/tree/master/highlight[via cljsjs].
+link:https://www.npmjs.com/package/highlight.js[via npm (for shadow-cljs)].
 
 == Quick Start
 
@@ -25,14 +25,8 @@ image:https://img.shields.io/clojars/v/superstructor/re-highlight?style=for-the-
 
 Requires that you have reagent as a dependency of your project: image:https://img.shields.io/clojars/v/reagent?style=for-the-badge&logo=clojure&logoColor=fff["Clojars Project", link="https://clojars.org/reagent"]
 
-If you use shadow-cljs, the `highlight.js` npm library dependency will be
-pulled automatically via `src/deps.cljs` `:npm-deps`.
-
-If you use another build system, you will probably need to add the following
-cljsjs dependency to your project:
-image:https://img.shields.io/clojars/v/cljsjs/highlight?style=for-the-badge&logo=clojure&logoColor=fff["Clojars Project", link="https://clojars.org/cljsjs/highlight"]
-
-Cljsjs is not included as a transitive dependency because it lags behind the npm release, so including it here would mean that this project depended on two different versions of Highlight.js. Cljsjs support is not a priority since shadow-cljs is the way to go these days, so code-wise it is compatible but consumers who want it have the cljsjs support need to add the dependency themselves.
+The `highlight.js` npm library dependency will be
+pulled in automatically by shadow-cljs via `src/deps.cljs` `:npm-deps`.
 
 === Step 2. Add Highlight.js Theme
 
@@ -53,11 +47,19 @@ Add a Highlight.js stylesheet to your `index.html` or equivalent; e.g.:
         {:language "clojure"}
         "(defn fibo-recursive [n]\n         (if (or (= n 0) (= n 1))\n           n\n           (+ (fibo-recursive (- n 1)) (fibo-recursive (- n 2)))))"]]])
 
+=== Step 4. Optional. Add non-Clojure Language Support
+
+Only Clojure support is registered by default. If you are using any other language, you need to  explicitly require
+and register it! E.g.
+
+    (require ["highlight.js/lib/languages/rust" :as rust])
+    (re-highlight/register-language "rust" rust)
+
 == License
 
 The MIT License (MIT)
 
-Copyright (c) 2019-2021 Isaac Johnston
+Copyright (c) 2019-2022 Isaac Johnston
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

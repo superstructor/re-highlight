@@ -1,5 +1,16 @@
 ## Unreleased
 
+#### Changed
+
+- BREAKING: Only include `"hightlight.js/lib/core"` to fix build performance issues
+  caused by previously loading all languages. Now only Clojure support is
+  registered by default. If you are using any other language, you now need to
+  explicitly require and register it! E.g.
+  ```clojure
+  (require ["highlight.js/lib/languages/rust" :as rust])
+  (re-highlight/register-language "rust" rust)
+  ```
+
 ## 1.1.0 (2021-07-14)
 
 #### Changed

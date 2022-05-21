@@ -1,11 +1,18 @@
 (ns re-highlight.core
   (:require
-    [goog.object  :as gobj]
-    [reagent.core :as r]
-    [reagent.dom  :as rdom]
-    [highlight.js :as highlight-js]))
+    [goog.object                          :as gobj]
+    [reagent.core                         :as r]
+    [reagent.dom                          :as rdom]
+    ["highlight.js/lib/core"              :as hljs]
+    ["highlight.js/lib/languages/clojure" :as clojure]))
 
-(def highlight-element (gobj/get highlight-js "highlightElement"))
+(defn register-language
+  [label js-obj]
+  (.registerLanguage hljs label js-obj))
+
+(register-language "clojure" clojure)
+
+(def highlight-element (gobj/get hljs "highlightElement"))
 
 (defn did-mount
   [this]
@@ -15,7 +22,7 @@
 (defn did-update
   [this old-argv old-state snapshot]
   (when-let [el (gobj/get (rdom/dom-node this) "firstChild")]
-    (-> (gobj/get highlight-js "initHighlighting")
+    (-> (gobj/get hljs "initHighlighting")
         (gobj/set "called" false))
     (highlight-element el)))
 

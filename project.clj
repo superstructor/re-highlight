@@ -3,22 +3,22 @@
   :url         "https://github.com/superstructor/re-highlight.git"
   :license     {:name "MIT"}
 
-  :dependencies [[org.clojure/clojure       "1.10.3"   :scope "provided"]
-                 [org.clojure/clojurescript "1.10.879" :scope "provided"
+  :dependencies [[org.clojure/clojure       "1.11.1"   :scope "provided"]
+                 [org.clojure/clojurescript "1.11.54"  :scope "provided"
                   :exclusions [com.google.javascript/closure-compiler-unshaded
                                org.clojure/google-closure-library
                                org.clojure/google-closure-library-third-party]]
-                 [thheller/shadow-cljs      "2.15.2"   :scope "provided"]
-                 [reagent                   "1.1.0"    :scope "provided"]
+                 [thheller/shadow-cljs      "2.19.0"   :scope "provided"]
+                 [reagent                   "1.1.1"    :scope "provided"]
                  [re-com                    "2.13.2"   :scope "provided"]]
 
-  :plugins [[day8/lein-git-inject "0.0.15"]
-            [lein-shadow          "0.4.0"]
-            [lein-shell           "0.5.0"]]
+  :plugins [[day8/lein-git-inject    "0.0.15"]
+            [lein-shadow             "0.4.0"]
+            [lein-shell              "0.5.0"]]
 
   :middleware [leiningen.git-inject/middleware]
 
-  :profiles {:dev {:dependencies [[binaryage/devtools "1.0.3"]]
+  :profiles {:dev {:dependencies [[binaryage/devtools "1.0.6"]]
                    :plugins      [[com.github.liquidz/antq "RELEASE"]
                                   [lein-pprint             "1.3.2"]]}}
 
