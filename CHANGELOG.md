@@ -1,5 +1,7 @@
 ## Unreleased
 
+## 2.0.1 (2022-05-30)
+
 #### Added
 
 - Add `hljs-compatible?` function. Checks that the version of Highlight.js that is loaded on the page has the
