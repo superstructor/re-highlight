@@ -1,5 +1,13 @@
 ## Unreleased
 
+#### Added
+
+- Add `hljs-compatible?` function. Checks that the version of Highlight.js that is loaded on the page has the
+functions expected from a compatible version. This is used by re-frame-10x to display a message that the
+correct dependency is missing in place of syntax higlighted source code. A common cause of an incompatible
+version being loaded is having a direct project dependency or transitive dependency that depends on a much
+older version of Highlight.js, such as 10.5.x instead of 11.5.x.
+
 ## 2.0.0 (2022-05-22)
 
 #### Changed

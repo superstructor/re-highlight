@@ -6,25 +6,38 @@
     ["highlight.js/lib/core"              :as hljs]
     ["highlight.js/lib/languages/clojure" :as clojure]))
 
+(def hljs-highlight-element (gobj/get hljs "highlightElement"))
+(def ^:private hljs-init-highlighting (gobj/get hljs "initHighlighting"))
+(def hljs-register-language (gobj/get hljs "registerLanguage"))
+
+(defn hljs-compatible?
+  "Return true if the Highlight.js library exposes the API we expect to see in
+   a compatible version, otherwise false. If this returns false, it is likely
+   that your transitive dependencies are pulling in a different version of
+   Highlight.js to the version that re-highlight depends on."
+  []
+  (and
+    (fn? hljs-highlight-element)
+    (fn? hljs-init-highlighting)
+    (fn? hljs-register-language)))
+
 (defn register-language
   [label js-obj]
-  (.registerLanguage hljs label js-obj))
+  (when (fn? hljs-register-language)
+    (hljs-register-language label js-obj)))
 
 (register-language "clojure" clojure)
-
-(def highlight-element (gobj/get hljs "highlightElement"))
 
 (defn did-mount
   [this]
   (when-let [el (gobj/get (rdom/dom-node this) "firstChild")]
-    (highlight-element el)))
+    (hljs-highlight-element el)))
 
 (defn did-update
   [this old-argv old-state snapshot]
   (when-let [el (gobj/get (rdom/dom-node this) "firstChild")]
-    (-> (gobj/get hljs "initHighlighting")
-        (gobj/set "called" false))
-    (highlight-element el)))
+    (gobj/set hljs-init-highlighting "called" false)
+    (hljs-highlight-element el)))
 
 (defn render
   [{:keys [class style language]} & children]
