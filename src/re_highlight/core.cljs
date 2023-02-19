@@ -2,9 +2,9 @@
   (:require
     [goog.object                          :as gobj]
     [reagent.core                         :as r]
-    [reagent.dom                          :as rdom]
     ["highlight.js/lib/core"              :as hljs]
-    ["highlight.js/lib/languages/clojure" :as clojure]))
+    ["highlight.js/lib/languages/clojure" :as clojure]
+    ["react"                              :as react]))
 
 (def hljs-highlight-element (gobj/get hljs "highlightElement"))
 (def ^:private hljs-init-highlighting (gobj/get hljs "initHighlighting"))
@@ -28,30 +28,28 @@
 
 (register-language "clojure" clojure)
 
-(defn did-mount
-  [this]
-  (when-let [el (gobj/get (rdom/dom-node this) "firstChild")]
-    (hljs-highlight-element el)))
-
-(defn did-update
-  [this old-argv old-state snapshot]
-  (when-let [el (gobj/get (rdom/dom-node this) "firstChild")]
-    (gobj/set hljs-init-highlighting "called" false)
-    (hljs-highlight-element el)))
-
-(defn render
-  [{:keys [class style language]} & children]
-  [:pre
-   {:class class
-    :style style}
-   (into
-     [:code
-      {:class language}]
-     children)])
-
 (defn highlight
-  []
-  (r/create-class
-    {:component-did-mount  did-mount
-     :component-did-update did-update
-     :reagent-render       render}))
+  [& _]
+  (let [^js ref (react/createRef)]
+    (r/create-class
+      {:component-did-mount
+       (fn [_]
+         (when-let [el (gobj/get (.-current ref) "firstChild")]
+           (hljs-highlight-element el)))
+
+       :component-did-update
+       (fn [_ _ _ _]
+         (when-let [el (gobj/get (.-current ref) "firstChild")]
+           (gobj/set hljs-init-highlighting "called" false)
+           (hljs-highlight-element el)))
+
+       :reagent-render
+       (fn [{:keys [class style language]} & children]
+         [:pre
+          {:ref   ref
+           :class class
+           :style style}
+          (into
+            [:code
+             {:class language}]
+            children)])})))
